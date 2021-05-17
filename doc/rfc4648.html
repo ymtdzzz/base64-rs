@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-17 Mon 22:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="松田陽佑" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org87f85c4">1. RFC4648 memo</a>
+<ul>
+<li><a href="#org15dfc25">1.1. Implementation Discrepancies (section 3)</a></li>
+<li><a href="#orgcf5774f">1.2. Base 64 Encoding (base64)</a></li>
+<li><a href="#orgb34fe94">1.3. Base 64 Encoding with URL and Filename Safe Alphabet (base64url)</a></li>
+<li><a href="#orgf24ed28">1.4. Base 32 Encoding (base32)</a></li>
+<li><a href="#org0336e2c">1.5. Base 32 Encoding with Extended Hex Alphabet (base32hex)</a></li>
+<li><a href="#org5b07476">1.6. Base 16 Encoding (base16)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org87f85c4" class="outline-2">
+<h2 id="org87f85c4"><span class="section-number-2">1</span> RFC4648 memo</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="https://datatracker.ietf.org/doc/html/rfc4648">https://datatracker.ietf.org/doc/html/rfc4648</a>
+</p>
+</div>
+
+<div id="outline-container-org15dfc25" class="outline-3">
+<h3 id="org15dfc25"><span class="section-number-3">1.1</span> Implementation Discrepancies (section 3)</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Implementation <b>MUST NOT</b> add line feeds to base-encoded data unless stated.</li>
+<li>Implementation <b>MUST</b> add pad characters at the end of encoded data (Exclude base16-encode).</li>
+<li>When interpreting, implementation <b>MUST</b> reject the encoded data it contains non-alphabet characters for the security reason.</li>
+<li>Pad bits <b>MUST</b> be set to zero.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcf5774f" class="outline-3">
+<h3 id="orgcf5774f"><span class="section-number-3">1.2</span> Base 64 Encoding (base64)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The Base 64 Alphabet
+</p>
+<pre class="example">
+Value Encoding  Value Encoding  Value Encoding  Value Encoding
+    0 A            17 R            34 i            51 z
+    1 B            18 S            35 j            52 0
+    2 C            19 T            36 k            53 1
+    3 D            20 U            37 l            54 2
+    4 E            21 V            38 m            55 3
+    5 F            22 W            39 n            56 4
+    6 G            23 X            40 o            57 5
+    7 H            24 Y            41 p            58 6
+    8 I            25 Z            42 q            59 7
+    9 J            26 a            43 r            60 8
+   10 K            27 b            44 s            61 9
+   11 L            28 c            45 t            62 +
+   12 M            29 d            46 u            63 /
+   13 N            30 e            47 v
+   14 O            31 f            48 w         (pad) =
+   15 P            32 g            49 x
+   16 Q            33 h            50 y
+</pre>
+
+<p>
+Process flow
+</p>
+
+<ul class="org-ul">
+<li>Split the 24-bits input into 6-bits groups (if fewer than 24-bits, value zero are added on the right)</li>
+<li>Convert each group into Base 64 Alphabet</li>
+<li>If the number of the output alphabets is fewer than 4, the special character '=' is/are added on the right</li>
+</ul>
+
+<p>
+Output pattern
+</p>
+
+<ol class="org-ol">
+<li>The final quantum of encoding input is an integral multiple of 24 bits: No '=' padding (its length is an integral multiple of 4 chars)</li>
+<li>The final quantum of encoding input is exactly 8-bits: The last group will be two characters followed by two '=' padding</li>
+<li>The final quantum of encoding input is exactly 16-bits: The last group will be three characters followed by one '=' padding</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb34fe94" class="outline-3">
+<h3 id="orgb34fe94"><span class="section-number-3">1.3</span> Base 64 Encoding with URL and Filename Safe Alphabet (base64url)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+The "URL and Filename safe" Base 64 Alphabet
+</p>
+<pre class="example">
+Value Encoding  Value Encoding  Value Encoding  Value Encoding
+    0 A            17 R            34 i            51 z
+    1 B            18 S            35 j            52 0
+    2 C            19 T            36 k            53 1
+    3 D            20 U            37 l            54 2
+    4 E            21 V            38 m            55 3
+    5 F            22 W            39 n            56 4
+    6 G            23 X            40 o            57 5
+    7 H            24 Y            41 p            58 6
+    8 I            25 Z            42 q            59 7
+    9 J            26 a            43 r            60 8
+   10 K            27 b            44 s            61 9
+   11 L            28 c            45 t            62 - (minus)
+   12 M            29 d            46 u            63 _ (underline)
+   13 N            30 e            47 v
+   14 O            31 f            48 w
+   15 P            32 g            49 x
+   16 Q            33 h            50 y         (pad) =
+</pre>
+
+<p>
+Process flow
+</p>
+
+<p>
+Same as base64.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf24ed28" class="outline-3">
+<h3 id="orgf24ed28"><span class="section-number-3">1.4</span> Base 32 Encoding (base32)</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+The Base 32 Alphabet
+</p>
+<pre class="example">
+Value Encoding  Value Encoding  Value Encoding  Value Encoding
+    0 A             9 J            18 S            27 3
+    1 B            10 K            19 T            28 4
+    2 C            11 L            20 U            29 5
+    3 D            12 M            21 V            30 6
+    4 E            13 N            22 W            31 7
+    5 F            14 O            23 X
+    6 G            15 P            24 Y         (pad) =
+    7 H            16 Q            25 Z
+    8 I            17 R            26 2
+</pre>
+
+<p>
+Process flow
+</p>
+
+<ul class="org-ul">
+<li>Split the 40-bits input into 5-bits groups (if fewer than 40-bits, value zero are added on the right)</li>
+<li>Convert each group into Base 32 Alphabet</li>
+<li>If the number of the output alphabets is fewer than 8, the special character '=' is/are added on the right</li>
+</ul>
+
+<p>
+Output pattern
+</p>
+
+<ol class="org-ol">
+<li>The final quantum of encoding input is an integral multiple of 40 bits: No '=' padding (its length is an integral multiple of 8 chars)</li>
+<li>The final quantum of encoding input is exactly 8-bits: The last group will be two characters followed by six '=' padding</li>
+<li>The final quantum of encoding input is exactly 16-bits: The last group will be four characters followed by four '=' padding</li>
+<li>The final quantum of encoding input is exactly 24-bits: The last group will be five characters followed by three '=' padding</li>
+<li>The final quantum of encoding input is exactly 32-bits: The last group will be seven characters followed by one '=' padding</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org0336e2c" class="outline-3">
+<h3 id="org0336e2c"><span class="section-number-3">1.5</span> Base 32 Encoding with Extended Hex Alphabet (base32hex)</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+The "Extended Hex" Base 32 Alphabet
+</p>
+<pre class="example">
+Value Encoding  Value Encoding  Value Encoding  Value Encoding
+    0 0             9 9            18 I            27 R
+    1 1            10 A            19 J            28 S
+    2 2            11 B            20 K            29 T
+    3 3            12 C            21 L            30 U
+    4 4            13 D            22 M            31 V
+    5 5            14 E            23 N
+    6 6            15 F            24 O         (pad) =
+    7 7            16 G            25 P
+    8 8            17 H            26 Q
+</pre>
+
+<p>
+Process flow
+</p>
+
+<p>
+Same as base32.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b07476" class="outline-3">
+<h3 id="org5b07476"><span class="section-number-3">1.6</span> Base 16 Encoding (base16)</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+The Base 16 Alphabet
+</p>
+<pre class="example">
+Value Encoding  Value Encoding  Value Encoding  Value Encoding
+    0 0             4 4             8 8            12 C
+    1 1             5 5             9 9            13 D
+    2 2             6 6            10 A            14 E
+    3 3             7 7            11 B            15 F
+</pre>
+
+<p>
+Process flow
+</p>
+
+<ul class="org-ul">
+<li>Split the 8-bits input into 4-bits groups</li>
+<li>Convert each group into Base 16 Alphabet</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: 松田陽佑</p>
+<p class="date">Created: 2021-05-17 Mon 22:16</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
