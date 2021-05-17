@@ -132,5 +132,6 @@ https://datatracker.ietf.org/doc/html/rfc4648
 
    - Split the 8-bits input into 4-bits groups
    - Convert each group into Base 16 Alphabet
-   
+
+#+AUTHOR: Y.Matsuda
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
