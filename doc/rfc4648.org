@@ -68,7 +68,7 @@ https://datatracker.ietf.org/doc/html/rfc4648
 
    Process flow
 
-   Same as base64.
+   Almost the same as base64. But "=" padding will not be added.
 
 ** Base 32 Encoding (base32)
    The Base 32 Alphabet
