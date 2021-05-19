@@ -68,8 +68,39 @@ impl Encoder for Base64Encoder {
         result
     }
 
-    fn decode(&self, _input: &str) -> Vec<u8> {
-        vec![]
+    fn decode(&self, input: &str) -> Vec<u8> {
+        // let mut result = String::new();
+        let mut result: Vec<u8> = vec![];
+        let mut bits = String::new();
+
+        for c in input.chars() {
+            let base64_pos = match self.encode_type {
+                EncodeType::Base64 => BASE64_STR.find(c),
+                EncodeType::Base64Url => BASE64URL_STR.find(c),
+            };
+            if let Some(pos) = base64_pos {
+                bits = format!("{}{:0>6b}", bits, pos);
+            } else {
+                bits = format!("{}000000", bits);
+            }
+        }
+
+        let mut idx: usize = 0;
+        while idx < bits.len() {
+            let end = idx.saturating_add(8);
+            let b = if end <= bits.len() {
+                bits[idx..end].to_string()
+            } else {
+                format!("{:0<8}", &bits[idx..(bits.len() - 1)])
+            };
+            let u8 = u8::from_str_radix(&b, 2).unwrap();
+            if u8 != 0 {
+                result.push(u8);
+            }
+            idx = idx.saturating_add(8);
+        }
+
+        result
     }
 }
 
