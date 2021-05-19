@@ -77,11 +77,7 @@ impl Encoder for Base64Encoder {
                 EncodeType::Base64 => BASE64_STR.find(c),
                 EncodeType::Base64Url => BASE64URL_STR.find(c),
             };
-            if let Some(pos) = base64_pos {
-                bits = format!("{}{:0>6b}", bits, pos);
-            } else {
-                bits = format!("{}000000", bits);
-            }
+            bits = format!("{}{:0>6b}", bits, base64_pos.unwrap_or(0));
         }
 
         let mut idx: usize = 0;
