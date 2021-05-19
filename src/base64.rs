@@ -69,7 +69,6 @@ impl Encoder for Base64Encoder {
     }
 
     fn decode(&self, input: &str) -> Vec<u8> {
-        // let mut result = String::new();
         let mut result: Vec<u8> = vec![];
         let mut bits = String::new();
 

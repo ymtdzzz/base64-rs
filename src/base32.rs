@@ -1,5 +1,16 @@
 use crate::Encoder;
 
+const BASE32: [char; 32] = [
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+    'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '2', '3', '4', '5', '6', '7',
+];
+const BASE32_STR: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+const BASE32HEX: [char; 32] = [
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+    'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+];
+const BASE32HEX_STR: &str = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
+
 pub enum EncodeType {
     Base32,
     Base32Hex,
@@ -16,12 +27,71 @@ impl Base32Encoder {
 }
 
 impl Encoder for Base32Encoder {
-    fn encode(&self, _input: &[u8]) -> String {
-        String::default()
+    fn encode(&self, input: &[u8]) -> String {
+        let mut bits = String::new();
+        input.iter().for_each(|byte| {
+            bits = format!("{}{:08b}", bits, byte);
+        });
+        let mut left: usize = 0;
+        let last = bits.len();
+        let mut result = String::new();
+
+        while left < last {
+            let right = if left.saturating_add(5) > last {
+                last
+            } else {
+                left.saturating_add(5)
+            };
+            let pos = usize::from_str_radix(&format!("{:0<5}", &bits[left..right]), 2).unwrap();
+            let ch = match self.encode_type {
+                EncodeType::Base32 => BASE32[pos],
+                EncodeType::Base32Hex => BASE32HEX[pos],
+            };
+            result = format!("{}{}", result, ch);
+            left = right;
+        }
+
+        if result.len() % 8 > 0 {
+            for _ in 0..(8 - (result.len() % 8)) {
+                result = format!("{}=", result);
+            }
+        }
+
+        result
     }
 
-    fn decode(&self, _input: &str) -> Vec<u8> {
-        vec![]
+    fn decode(&self, input: &str) -> Vec<u8> {
+        let mut result: Vec<u8> = vec![];
+        let mut bits = String::new();
+
+        for c in input.chars() {
+            let base32_pos = match self.encode_type {
+                EncodeType::Base32 => BASE32_STR.find(c),
+                EncodeType::Base32Hex => BASE32HEX_STR.find(c),
+            };
+            if let Some(pos) = base32_pos {
+                bits = format!("{}{:0>5b}", bits, pos);
+            } else {
+                bits = format!("{}00000", bits);
+            }
+        }
+
+        let mut idx: usize = 0;
+        while idx < bits.len() {
+            let end = idx.saturating_add(8);
+            let b = if end <= bits.len() {
+                bits[idx..end].to_string()
+            } else {
+                format!("{:0<8}", &bits[idx..(bits.len() - 1)])
+            };
+            let u8 = u8::from_str_radix(&b, 2).unwrap();
+            if u8 != 0 {
+                result.push(u8);
+            }
+            idx = idx.saturating_add(8);
+        }
+
+        result
     }
 }
 
